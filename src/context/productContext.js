@@ -15,7 +15,8 @@ import reducer from "../reducer/ProductReducer";
 //create context
 const AppContext = createContext();
 
-const API = "https://api.pujakaitem.com/api/products";
+// const API = "https://api.pujakaitem.com/api/products";
+const API = "https://trendsetters-api.onrender.com/api/products";
 
 const initialState = {
     isLoading: false,
