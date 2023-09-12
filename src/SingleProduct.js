@@ -8,6 +8,8 @@ import MyImage from "./components/MyImage";
 import FormatPrice from "./helper/FormatPrice";
 import {TbTruckDelivery, TbReplace} from "react-icons/tb";
 import {MdSecurity} from "react-icons/md";
+import Star from "./components/Star";
+import AddToCart from "./components/AddToCart";
 
 
 const API = "https://trendsetters-api.onrender.com/api/products";
@@ -42,8 +44,7 @@ const SingleProduct = () =>{
           {/* product details  */}
           <div className="product-data">
             <h2>{name}</h2>
-            <p>{stars}</p>
-            <p>{reviews}</p>
+            <Star stars={stars} reviews={reviews} />
 
             {/* MRP and Deal of the day: addition in original price */}
             <p className="product-data-price">
@@ -84,7 +85,15 @@ const SingleProduct = () =>{
             <div className="product-data-info">
               <p> Available: { stock > 0 ?  "In Stock" : "Out of stock"}
               </p>
+
+              <p>ID: {id}</p>
+              <p> Brand: <span> {company}</span></p>
             </div>
+
+            {/* color */}
+            <hr/>
+            {stock > 0 && <AddToCart product= {singleProduct} />}
+
 
           </div>
         </div>

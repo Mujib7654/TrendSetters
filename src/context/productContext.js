@@ -2,7 +2,7 @@
 
 //Steps to use Context API
 //1. Create a context
-//2.return
+//2.provider : to deliver data 
 //3. consumer: to get delivery, needs to scan, verify etc  : using useContext Hooks
 
 //at first we need to create data, a global warehouse from where we can (send/receive) data easily
@@ -84,6 +84,7 @@ const AppProvider =({children}) => {
 
     return (
     <AppContext.Provider value= {{ ...state, getSingleProduct}}>{children}</AppContext.Provider>
+    // <AppContext.Provider value= {{myName: "Mujib"}}>{children}</AppContext.Provider>
     );
 };
 
