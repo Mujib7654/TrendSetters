@@ -8,13 +8,13 @@ const initialState ={
     filter_products: [],
     all_products: [],
     grid_view: true,
+    sorting : "lowest",
 };
 
 //create provider : main function
 export const FilterContextProvider = ({children}) => {
 
     const {products} = useProductContext();
-    // console.log({products});
 
     const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -26,11 +26,20 @@ export const FilterContextProvider = ({children}) => {
         return dispatch ({type: "SET_LIST_VIEW"});
     };
 
+    // sorting
+    const sorting =() => {
+        dispatch ({type: "GET_SORT_VALUES"});
+    };
+
+    useEffect(() =>{
+        dispatch ({type: "SORTING_PRODUCTS", payload: products})
+    }, [state.sorting_value])
+
     useEffect(() => {
         dispatch({type: "LOAD_FILTER_PRODUCTS", payload: products })
-    }, [products])
+    }, [products]);
 
-    return <FilterContext.Provider value = {{ ...state, setGridView, setListView}}>
+    return <FilterContext.Provider value = {{ ...state, setGridView, setListView, sorting}}>
         {children}
     </FilterContext.Provider>
 };
