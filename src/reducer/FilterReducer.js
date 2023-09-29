@@ -133,11 +133,6 @@ const FilterReducer = (state, action) => {
                     curElem.colors.includes(color)
                     )
                  }
-                //  if(price===0){
-                //     tempFilterProduct =tempFilterProduct.filter((curElem) => {
-                //         return curElem.price === price;
-                //     })
-                //  }
                  if(price){
                     tempFilterProduct =tempFilterProduct.filter((curElem) => {
                         return curElem.price <= price;
@@ -162,8 +157,6 @@ const FilterReducer = (state, action) => {
                         price: 0,
                     }
                 }
-
-            
         default :
             return state;    
     }
